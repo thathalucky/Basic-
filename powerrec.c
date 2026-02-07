@@ -3,19 +3,17 @@
 #include <stdio.h>
 #include<math.h>
 
-int power ( int a ,int b );
-int power (int a ,int b ){
+int power ( int a ,int b,int total );
+int power (int a ,int b,int total ){
   
  
  if (b==1){
-     return a*b ;
+     return total ;
    }
   else {
-
-int add = power(a , b - 1);
- int total = add*a ;
-      
-  }
+       total = total * a ;
+       return power(a,b-1,total);
+   }
 }
 
 
@@ -28,8 +26,7 @@ int  b ;
 printf("Enter the number b  : " );
 scanf("%d" , &b);
 if (b== 0 ) printf("1\n");
-int power11 = power(a,b);
-printf("%d",power11);
+printf("%d",power(a,b,a));
 
     return 0;
 }
