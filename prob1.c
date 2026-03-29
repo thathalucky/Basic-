@@ -1,0 +1,72 @@
+/*
+Program on giving the input of students 5 subject marks and doing 
+the average and gives average obtained by 10 students ...(with name of the students)
+*/
+#include<stdio.h>
+#include<string.h>
+
+typedef struct StudentsSubjectWiseMarksDetails {
+char name[100];
+float maths;
+float physics;
+float chemistry;
+float total;
+float average;
+
+}Marks;
+
+int  EnterInfo(Marks *a);
+int PrintInfo(Marks *a);
+
+
+int main(){
+
+    Marks s1,s2,s3,s4,s5;
+    int i = 1 ;
+printf("Enter the details of %d student \n",i);
+EnterInfo(&s1);   
+i++;
+printf("Enter the details of %d student \n",i);
+EnterInfo(&s2);   
+i++;
+printf("Enter the details of %d student \n",i);
+EnterInfo(&s3);   
+i++;
+printf("Enter the details of %d student \n",i);
+EnterInfo(&s4);   
+i++;
+printf("Enter the details of %d student \n",i);
+EnterInfo(&s5); 
+
+PrintInfo(&s1);
+PrintInfo(&s2);
+PrintInfo(&s3);
+PrintInfo(&s4);
+PrintInfo(&s5);
+
+return 0 ;
+}
+int EnterInfo(Marks *a){
+char s[100];
+printf("Enter the name : \n");
+scanf("%s",s);
+strcpy(a->name,s);
+printf("Enter the marks of Mathematics : \n");
+scanf("%f",&(a->maths));
+printf("Enter the marks of Physics : \n");
+scanf("%f",&(a->physics));
+printf("Enter the marks of Chemistry : \n");
+scanf("%f",&(a->chemistry));
+return 0 ;
+}
+int PrintInfo(Marks *a){
+printf("Performance of Student : \n");
+printf("Marks of Mathematics : %f \n",a->maths);
+printf("Marks of Physics : %f \n",a->physics);
+printf("Marks of Chemistry : %f \n",a->chemistry);
+int x=a->maths,y=a->physics,z=a->chemistry;
+int avg = (x+y+z)/3;
+a->average=avg;
+printf("Average : %f\n",a->average);
+return 0;
+}
